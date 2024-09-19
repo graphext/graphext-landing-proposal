@@ -5,6 +5,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import type { ObserverEventDetails } from 'svelte-inview';
 	import { inview } from 'svelte-inview';
+	import { cn } from '$lib/utils'; // Add this import
 
 	// Images
 	import HeroDarkImg from '$lib/imgs/hero-dark.webp';
@@ -41,14 +42,19 @@
 	>
 		Beautifully designed, outstanding performance on millions of rows, and AI powered data analysis.
 	</p>
-	<Button
-		class="-translate-y-4 animate-fade-in gap-1 rounded-lg opacity-0 ease-in-out [--animation-delay:600ms]"
-	>
-		<span class="font-bold">Get Started for free </span>
-		<ArrowRightIcon
-			class="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
-		/>
-	</Button>
+	<a href="https://accounts.graphext.com/users/sign_up">
+		<Button
+			class={cn(
+				'group relative gap-2 overflow-hidden text-lg font-semibold tracking-tighter',
+				'transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-blue-200  hover:ring-offset-2'
+			)}
+		>
+			<span class="font-bold">Get Started for free </span>
+			<ArrowRightIcon
+				class="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+			/>
+		</Button>
+	</a>
 	<div
 		use:inview={{
 			unobserveOnEnter: true,
